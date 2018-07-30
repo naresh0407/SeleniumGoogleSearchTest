@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Main Test Suite" parallel="tests" verbose="1">
 	<test name="Grid chrome Test">
-		<parameter name="browser" value="chrome"/>
+		<parameter name="browser" value="firefox"/>
 		<classes>
 			<class name="com.test.SeleniumGoogleSearchTest"/>
 		</classes>
