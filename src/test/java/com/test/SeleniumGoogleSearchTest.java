@@ -1,6 +1,12 @@
 package com.test;
 
 import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.MalformedURLException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -17,15 +23,28 @@ import org.openqa.selenium.TakesScreenshot;
 
 public class SeleniumGoogleSearchTest {
 
-	public static RemoteWebDriver driver;
+	public static WebDriver driver;
 	public static String appURL = "http://www.google.com";
 	
 	@BeforeClass
 	@Parameters({ "browser" })
 	public void setUp(String browser) throws MalformedURLException {
 		System.out.println("*******************");
-		driver = Browser.getDriver(browser);
+
+		DesiredCapabilities caps = DesiredCapabilities.chrome();
+		//caps.setCapability("platform", "Windows 7");
+		//caps.setCapability("version", "38.0");
+		driver = new RemoteWebDriver(new URL("http://venkatas:3e5f86e3-b6c5-4d64-96e3-c72ff55518b7@ondemand.saucelabs.com:80/wd/hub"), caps);
+
 		driver.manage().window().maximize();
+	}
+	
+	@Test
+	public void testSauceLab() throws Exception{
+		System.out.println("Opening Google..");
+		driver.get("https://saucelabs.com/test/guinea-pig");
+		System.out.println("title of page is: " + driver.getTitle());
+		this.takeSnapShot(driver, "SauceTest.png") ;
 	}
 	
 	@Test
