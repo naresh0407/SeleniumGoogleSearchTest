@@ -34,7 +34,7 @@ public class SeleniumGoogleSearchTest {
 		DesiredCapabilities caps = DesiredCapabilities.chrome();
 		//caps.setCapability("platform", "Windows 7");
 		//caps.setCapability("version", "38.0");
-		driver = new RemoteWebDriver(new URL("http://venkatas:ACCESS_KEY@ondemand.saucelabs.com:80/wd/hub"), caps);
+		driver = new RemoteWebDriver(new URL("http://naresh0407:3467d2cc-f3d3-4b6e-9028-4fa788ea630f@ondemand.saucelabs.com:80/wd/hub"), caps);
 
 		driver.manage().window().maximize();
 	}
